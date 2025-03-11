@@ -1,6 +1,10 @@
 # sd72-project-elysium
 The Elysium Fields are a paradise for the heroic and virtuous after death.  In this case, the death of old student laptops.
 
+# Creating the image
+ - CUBIC to generate
+ - balenaEtcher to create USB installer
+
 # Desktop Environment
 - Lubuntu (Ubuntu with LXQt).  Fast but ugly
 - Linux Mint with Cinnamon - Ideal if it's fast enough
