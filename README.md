@@ -13,14 +13,14 @@ The Elysium Fields are a paradise for the heroic and virtuous after death.  In t
 # Requirements / TODO
   - [ ] No listed users at login screen
   - [ ] Guest session option only at login screen:
-      - [ ] Enable guest session
-      - [ ] Remove admin login option from greeter
+      - [x] Enable guest session
+      - [x] Remove admin login option from greeter
       - [ ] Update Temporary Guest Session popup message
   - [ ] No popups or other stuff on first login by Guest (Can do this by getting a copy of the usr/skel or by creating a defaul user skel, after dismissing all the things and setting up as needed)
       - [ ] Linux Mint Welcome
   - [ ] enable firewall? (ufw)  
-  - [ ] Chrome installed
-  - [ ] Chrome auto opens to office365 or teams page for login to school account
+  - [x] Chrome installed
+  - [x] Chrome auto opens to office365 or teams page for login to school account
   - [ ] Ensure VLC and all Codecs are installed
   - [ ] Turn off anything that autostarts and run uneccessarily
   - [ ] Remove LibreOffice, instead have shortcuts linked to web versions of Word/Excel/other?
@@ -38,6 +38,7 @@ The Elysium Fields are a paradise for the heroic and virtuous after death.  In t
  - https://easylinuxtipsproject.blogspot.com/p/speed-mint.html#ID1
  - https://easylinuxtipsproject.blogspot.com/p/ssd.html#ID2
  - https://wiki.ubuntu.com/LightDM#Configuration
+ - https://help.ubuntu.com/community/CustomizeGuestSession
 
 # Configuration
 
