@@ -71,8 +71,8 @@ Configuring the default guest home drive skeleton (see https://help.ubuntu.com/c
 8. Delete history from Chrome and Firefox (so the default login guest has empty history)
 9. Remove the terminal from the bottom bar (it's pinned by default)
 
-Now need to install this as the default guest home:
-copy the home drive to: `/etc/guest-default/skel`
+Now need to install this as the default guest home (home drive skeleton that is copied to a the new ephemeral guest user when logging in):
+copy the home drive to: `/etc/guest-session/skel`
 
 ## Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb  
