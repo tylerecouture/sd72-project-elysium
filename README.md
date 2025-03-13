@@ -42,5 +42,25 @@ The Elysium Fields are a paradise for the heroic and virtuous after death.  In t
 
 # Configuration
 
+## Preseed
+
+
 ## Greeter and Guest Mode
+sudo nano /usr/share/lightdm/lightdm.conf.d/99-sd72.conf
+
+[Seat:*]
+allow-guest = true
+greeter-hide-users = true
+greeter-show-manual-login=true  # testing only, turn off for production
+
+## Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt install ./google-chrome*.deb
+
+## Keyring (Chrome problem)
+https://forums.linuxmint.com/viewtopic.php?t=431888
+sudo apt-get install libpam-gnome-keyring
+sudo nano /etc/pam.d/lightdm
+auth optional pam_gnome_keyring.so  # not commented out
+session optional pam_gnome_keyring.so auto_start  # not commented out
 
