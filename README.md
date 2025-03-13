@@ -44,6 +44,8 @@ The Elysium Fields are a paradise for the heroic and virtuous after death.  In t
 
 ## Preseed
 
+https://wiki.debian.org/DebianInstaller/Preseed
+
 
 ## Greeter and Guest Mode
 sudo nano /usr/share/lightdm/lightdm.conf.d/99-sd72.conf
