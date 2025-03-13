@@ -43,7 +43,9 @@ The Elysium Fields are a paradise for the heroic and virtuous after death.  In t
 # Configuration
 
 ## Preseed
+apt install debconf-utils
 
+so can dump the selected settings with:  
 https://wiki.debian.org/DebianInstaller/Preseed
 
 
