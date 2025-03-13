@@ -87,3 +87,20 @@ sudo nano /etc/pam.d/lightdm
 auth optional pam_gnome_keyring.so  # not commented out  
 session optional pam_gnome_keyring.so auto_start  # not commented out  
 
+## CUBIC package selection
+Remove these packages (untick) during Cubic iso creation
+
+ - manpages
+ - timeshift
+ - transmission
+ - thunderbird
+ - totem
+ - rythmbox
+ - hypnotix
+ - libreoffice-*
+ - simple-scan
+ - nvidia-prime-applet
+ - yelp-*
+ - pidgin
+ - hexchat
+
