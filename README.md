@@ -49,11 +49,30 @@ https://wiki.debian.org/DebianInstaller/Preseed
 
 ## Greeter and Guest Mode
 sudo nano /usr/share/lightdm/lightdm.conf.d/99-sd72.conf
-
+```
 [Seat:*]
 allow-guest = true  
 greeter-hide-users = true  
-greeter-show-manual-login=true  # testing only, turn off for production  
+#greeter-show-manual-login=true  # testing only, turn off for production  
+```
+
+Configuring the default guest home drive skeleton (see https://help.ubuntu.com/community/CustomizeGuestSession)
+1. Open Google Chrome, set the Keyring password to blank (to prevent it from popping up everytie)
+2. Pin Chrome to the bottom bar
+3. Run Chrome and Firefox and get rid of all the first-time popups/windows/questions
+4. Set the start pages (startup tabs for Chrome and Firefox Home Shortcuts):
+   - https://login.microsoftonline.com
+   - https://teams.microsoft.com/v2/
+   - https://www.sd72.bc.ca/ 
+5. Run "Startup Applications" app:
+   - Add Google Chrome
+   - Turn off: SSH Key Agent, Support for NVIDIA Prime, System Reports
+7. Edit the Firefox newtab/home page (cog top right of page) and turn off recommended stories, Recent activity, and Weather.  Remove default shortcut tiles below the google search bar and add the three listed above
+8. Delete history from Chrome and Firefox (so the default login guest has empty history)
+9. Remove the terminal from the bottom bar (it's pinned by default)
+
+Now need to install this as the default guest home:
+copy the home drive to: `/etc/guest-default/skel`
 
 ## Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb  
