@@ -50,13 +50,27 @@ https://wiki.debian.org/DebianInstaller/Preseed
 
 
 ## Greeter and Guest Mode
+
+### Greeter
+Greeter docs: https://wiki.ubuntu.com/LightDM#Configuration
 sudo nano /usr/share/lightdm/lightdm.conf.d/99-sd72.conf
 ```
 [Seat:*]
-allow-guest = true  
-greeter-hide-users = true  
+allow-guest=true  
+greeter-hide-users=true
+autologin-guest=true
 #greeter-show-manual-login=true  # testing only, turn off for production  
 ```
+
+### Background Default
+
+
+### Loading Icons
+
+
+### Guest Account
+
+
 
 Configuring the default guest home drive skeleton (see https://help.ubuntu.com/community/CustomizeGuestSession)
 1. Open Google Chrome, set the Keyring password to blank (to prevent it from popping up everytie)
