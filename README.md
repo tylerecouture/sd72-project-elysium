@@ -131,8 +131,10 @@ session optional pam_gnome_keyring.so auto_start  # not commented out
 ```
 sudo apt full-upgrade
 du -sh /var/cache/apt/archives/ # check cache size
+# purge unused Kernels -- look up how to do it =)
+
 apt autoremove 
-apt full 
+apt clean
 du -sh /var/cache/apt/archives/ # check cache size
 ```
 
