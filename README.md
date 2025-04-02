@@ -42,6 +42,12 @@ The Elysium Fields are a paradise for the heroic and virtuous after death.  In t
 
 # Configuration
 
+## Unattended Upgrade / Automatic Updates:
+
+https://help.ubuntu.com/community/AutomaticSecurityUpdates#Using_the_.22unattended-upgrades.22_package
+
+Also remove Mint-Update: `sudo apt remove --purge -y mintupdate`
+
 ## Preseed
 apt install debconf-utils
 
@@ -120,6 +126,15 @@ sudo apt-get install libpam-gnome-keyring
 sudo nano /etc/pam.d/lightdm  
 auth optional pam_gnome_keyring.so  # not commented out  
 session optional pam_gnome_keyring.so auto_start  # not commented out  
+
+## Upgrade everything and clean caches
+```
+sudo apt full-upgrade
+du -sh /var/cache/apt/archives/ # check cache size
+apt autoremove 
+apt full 
+du -sh /var/cache/apt/archives/ # check cache size
+```
 
 ## CUBIC package selection
 Remove these packages (untick) during Cubic iso creation
