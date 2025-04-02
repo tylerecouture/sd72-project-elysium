@@ -53,13 +53,33 @@ https://wiki.debian.org/DebianInstaller/Preseed
 
 ### Greeter
 Greeter docs: https://wiki.ubuntu.com/LightDM#Configuration
-sudo nano /usr/share/lightdm/lightdm.conf.d/99-sd72.conf
+nano /usr/share/lightdm/lightdm.conf.d/99-sd72.conf
 ```
 [Seat:*]
 allow-guest=true  
 greeter-hide-users=true
 autologin-guest=true
 #greeter-show-manual-login=true  # testing only, turn off for production  
+```
+
+### Popup message
+Disable default: https://help.ubuntu.com/community/CustomizeGuestSession#Disable_startup_dialog
+
+nano /etc/guest-session/prefs.sh
+```
+touch $HOME/.skip-guest-warning-dialog
+```
+
+Replace with new popup message (that won't be overwritten if LightDM updates per https://askubuntu.com/a/533257)
+nano /etc/guest-session/auto.sh
+```
+TITLE='Temporary Guest Session'
+TEXT="All data created during this guest session will be deleted
+when you log out and settings will be reset to defaults.
+
+Please save files to your Microsoft OneDrive if you would like to
+access them again later."
+{ sleep 4; zenity --warning --no-wrap --title="$TITLE" --text="$TEXT"; } &
 ```
 
 ### Background Default
