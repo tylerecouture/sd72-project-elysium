@@ -196,3 +196,57 @@ Remove these packages (untick) during Cubic iso creation
  - pidgin
  - hexchat
 
+
+## Printer script:
+
+Create a script:
+`nano /usr/local/bin/sd72-printer-installer.sh`
+
+Content:
+```
+#!/bin/bash
+
+# Remove all printers
+for printer in $(lpstat -p | awk '{print $2}'); do
+    echo "Removing printer: $printer"
+    lpadmin -x "$printer"
+done
+
+# Add your specific printer (adjust these as needed)
+PRINTER_NAME="Lexmark_Guest"
+PRINTER_IP="192.168.1.100"  # <-- CHANGE THIS
+DRIVER="drv:///sample.drv/generic.ppd"  # or PCL6: drv:///sample.drv/generpcl6.ppd
+
+echo "Installing printer: $PRINTER_NAME"
+lpadmin -p "$PRINTER_NAME" -E -v "socket://$PRINTER_IP:9100" -m "$DRIVER"
+
+# Optionally set a default
+#lpoptions -d "$PRINTER_NAME"
+
+```
+
+Make executable:
+`sudo chmod +x /usr/local/bin/sd72-printer-installer.sh`
+
+### Systemd service to run on each reboot:
+
+`sudo nano /etc/systemd/system/sd72-setup-printers.service`
+
+Content:
+```
+[Unit]
+Description=Setup printer for guest user
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/sd72-printer-installer.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=graphical.target
+```
+
+Enable the service to start on boot:
+`sudo systemctl enable sd72-setup-printers.service`
+
