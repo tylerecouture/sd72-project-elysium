@@ -49,10 +49,33 @@ https://help.ubuntu.com/community/AutomaticSecurityUpdates#Using_the_.22unattend
 Also remove Mint-Update: `sudo apt remove --purge -y mintupdate`
 
 ## Preseed
-apt install debconf-utils
+Use this preseed file within CUBIC:
 
-so can dump the selected settings with:  
-https://wiki.debian.org/DebianInstaller/Preseed
+https://github.com/tylerecouture/sd72-project-elysium/blob/main/custom.seed
+
+## Boot
+
+Ensure these entries are added in CUBIC:
+
+grub/grub.cfg (for UEFI install)
+
+```
+menuentry "Start Automated SD72buntu Install" --class linuxmint {
+    set gfxpayload=keep
+    linux /casper/vmlinuz boot=casper automatic-ubiquity ubiquity/automatic=yes only-ubiquity file=/cdrom/preseed/custom.seed quiet splash --
+    initrd /casper/initrd.gz
+}
+```
+
+isolinux.live.cfg (for legacy install)
+
+```
+label autoinstall
+	menu label ^Automated SD72buntu Install
+	menu default
+	kernel /casper/vmlinuz
+	append boot=casper initrd=/casper/initrd.gz automatic-ubiquity ubiquity/automatic=yes only-ubiquity file=/cdrom/preseed/custom.seed quiet splash --
+```
 
 
 ## Greeter and Guest Mode
