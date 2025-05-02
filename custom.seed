@@ -1,0 +1,58 @@
+# Set the hostname
+ubiquity ubiquity/hostname string sd72buntu
+
+# Set the language, locale, and keyboard
+ubiquity debian-installer/language string en
+ubiquity debian-installer/locale string en_US.UTF-8
+ubiquity keyboard-configuration/layoutcode string us
+
+
+# Set the language for installation (no ubiquity prefix)
+languagechooser/language-name string en
+# Set the country/region (no ubiquity prefix)
+countrychooser/shortlist string US
+# Set the supported locales (no ubiquity prefix)
+localechooser/supported-locales string en_US.UTF-8
+
+
+# Set the timezone
+ubiquity time/zone string America/Vancouver
+
+# Set up the user account
+ubiquity passwd/username string [REPLACE WITH ADMIN USERNAME]
+ubiquity passwd/user-fullname string Administrator
+ubiquity passwd/user-password password [REPLACE WITH PASSWORD]
+ubiquity passwd/user-password-again password [REPLACE WITH PASSWORD]
+
+# Install Multimedia Codecs and allow non-free 
+ubiquity ubiquity/use_nonfree boolean true
+ubiquity ubiquity/enable-restricted boolean true
+ubiquity ubiquity/enable-universe boolean true
+ubiquity ubiquity/enable-multiverse boolean true
+ubiquity ubiquity/install_non_free_software boolean true
+ubiquity ubiquity/enable-multimedia-codecs boolean true
+
+# Root password (disable root login by leaving it blank)
+ubiquity passwd/root-login boolean false
+ubiquity passwd/root-password-blank boolean true
+
+# Partitioning - erase entire disk automatically
+ubiquity partman-auto/method string regular
+ubiquity partman-auto/choose_recipe select atomic
+ubiquity partman-partitioning/confirm_write_new_label boolean true
+ubiquity partman/choose_partition select finish
+ubiquity partman/confirm boolean true
+
+# Skip encryption setup
+ubiquity partman-crypto/passphrase password ""
+
+# Skip automatic updates prompt
+ubiquity ubiquity/automatic_updates boolean false
+
+# Automatically confirm installation steps
+ubiquity ubiquity/confirm boolean true
+
+# Wi-Fi setup (skip, wifi is preconnected)
+ubiquity ubiquity/skip_wireless boolean true
+
+ubiquity ubiquity/reboot boolean true
