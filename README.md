@@ -22,13 +22,13 @@ The Elysium Fields are a paradise for the heroic and virtuous after death.  In t
   - [x] Chrome installed
   - [x] Chrome auto opens to office365 or teams page for login to school account
   - [x] Ensure VLC and all Codecs are installed `apt install vlc
-  - [ ] Turn off anything that autostarts and run uneccessarily
+  - [x] Turn off anything that autostarts and run uneccessarily
   - [x] Remove LibreOffice
-  - [ ] Ensure everything deleted (guest home account) when use logs off
-  - [ ] Background image? `sudo cp /path/to/your-image.jpg /usr/share/backgrounds/linuxmint/default_background.jpg`
-  - [ ] Login screen image? - replace all the throbber and animation images in `cd /usr/share/plymouth/themes/mint-logo/`
-  - [ ] Screensaver?
-  - [ ] Auto connect to wifi, how? Preseed?
+  - [x] Ensure everything deleted (guest home account) when use logs off
+  - [x] Background image? `sudo cp /path/to/your-image.jpg /usr/share/backgrounds/linuxmint/default_background.jpg`
+  - [x] Login screen image? - replace all the throbber and animation images in `cd /usr/share/plymouth/themes/mint-logo/`
+  - [x] Screensaver (defaults to background with clock which is fine, no customization needed)
+  - [x] Auto connect to wifi, how? Preseed?
   - [ ]  ? 
 
 # Decisions
