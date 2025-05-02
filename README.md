@@ -120,12 +120,30 @@ copy the home drive to: `/etc/guest-session/skel`
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb  
 dpkg -i google-chrome*.deb  
 
-## Keyring (Chrome problem)
+### Keyring (Chrome problem)
 https://forums.linuxmint.com/viewtopic.php?t=431888  
 sudo apt-get install libpam-gnome-keyring  
 sudo nano /etc/pam.d/lightdm  
 auth optional pam_gnome_keyring.so  # not commented out  
 session optional pam_gnome_keyring.so auto_start  # not commented out  
+
+### Prevent Chrome "What's New" tab
+Annoying tab pops up every time there is an update, which is too often.
+
+Need to confirm this worked:
+
+`sudo mkdir -p /etc/opt/chrome/policies/managed`  
+`sudo nano /etc/opt/chrome/policies/managed/block_promotions.json`  
+
+```
+{
+  "PromotionalTabsEnabled": false,
+  "ShowWelcomePage": false,
+  "HideWebStoreIcon": true,
+  "FirstRunTabs": [],
+  "BrowserSignin": 0
+}
+```
 
 ## Upgrade everything and clean caches
 ```
